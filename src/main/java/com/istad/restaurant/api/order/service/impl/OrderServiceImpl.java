@@ -81,12 +81,12 @@ public class OrderServiceImpl implements OrderService {
                         new ResponseStatusException(HttpStatus.NOT_FOUND,
                                 "The Uuid order that you tried to reach does not exist."));
         var orderDetails = orderDetailRepository.findAllByOrder_Id(isFound.getId());
-
-        orderItemDtos = orderDetails.stream().map(orderDetail -> OrderItemDto.builder()
-                .name(orderDetail.getItem().getName())
-                .qty(orderDetail.getQty())
-                .price(orderDetail.getItem().getPrice())
-                .build()).collect(Collectors.toList());
+        orderItemDtos = orderDetails.stream()
+                .map(orderDetail -> OrderItemDto.builder()
+                        .name(orderDetail.getItem().getName())
+                        .qty(orderDetail.getQty())
+                        .price(orderDetail.getItem().getPrice())
+                        .build()).collect(Collectors.toList());
         return orderMapper.toOrderDto(isFound, orderItemDtos);
     }
 

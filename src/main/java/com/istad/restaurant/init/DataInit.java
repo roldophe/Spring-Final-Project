@@ -43,6 +43,7 @@ public class DataInit {
 //                .contact("+23198745")
 //                .age(21)
 //                .gender("M")
+//                .isWorking(true)
 //                .email("radom123G@gmail.com")
 //                .address("Pnhom Penh")
 //                .build());
@@ -50,6 +51,7 @@ public class DataInit {
 //                .uuid(UUID.randomUUID().toString())
 //                .firstName("James")
 //                .lastName("Bond")
+//                .isWorking(true)
 //                .dob(LocalDate.now())
 //                .contact("+536198745")
 //                .gender("M")
@@ -63,6 +65,7 @@ public class DataInit {
 //                .lastName("Macha")
 //                .dob(LocalDate.now())
 //                .age(23)
+//                .isDeleted(false)
 //                .gender("M")
 //                .email("machaasd123@gmail.com")
 //                .contact("+536198745")
@@ -76,6 +79,7 @@ public class DataInit {
 //                .uuid(UUID.randomUUID().toString())
 //                .email("kooko123@gmail.com")
 //                .age(34)
+//                .isDeleted(false)
 //                .contact("+536198745")
 //                .address("Pnhom Penh")
 //                .build());
