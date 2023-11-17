@@ -5,6 +5,9 @@ import dev.radom.restaurant.api.order.dto.OrderItemDto;
 import dev.radom.restaurant.api.order.service.OrderService;
 import dev.radom.restaurant.api.payment.Invoice;
 import dev.radom.restaurant.api.payment.InvoiceDetail;
+import dev.radom.restaurant.api.payment.InvoiceMapper;
+import dev.radom.restaurant.api.payment.dto.InvoiceDetailDto;
+import dev.radom.restaurant.api.payment.repository.InvoiceDetailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +33,9 @@ public class InvoiceDetailImpl implements InvoiceDetailService {
         InvoiceDetail invoiceDetail = new InvoiceDetail();
         invoiceDetail.setDiscAmt(disAmt);
         invoiceDetail.setSubTotal(subTotal);
-        invoice.setFinalTotal(subTotal.subtract(disAmt).add(invoice.getOther()));
+        invoiceDetail.setFinalTotal(subTotal.subtract(disAmt).add(invoice.getOther()));
         invoiceDetail.setInvoice(invoice);
         return invoiceDetail;
     }
+
 }

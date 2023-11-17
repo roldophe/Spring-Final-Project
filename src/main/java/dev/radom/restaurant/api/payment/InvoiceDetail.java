@@ -14,11 +14,12 @@ public class InvoiceDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "disc_Amount")
-    private BigDecimal discAmt;
     @Column(name = "sub_total")
     private BigDecimal subTotal;
-    @ManyToOne
+    @Column(name = "disc_Amount")
+    private BigDecimal discAmt;
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
+    private BigDecimal finalTotal;
 }

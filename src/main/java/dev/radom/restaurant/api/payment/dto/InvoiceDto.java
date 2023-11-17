@@ -7,11 +7,8 @@ public record InvoiceDto(String uuid,
                          String orderUuid,
                          LocalDateTime paymentDate,
                          String paymentMethod,
-                         Integer discPct,
-                         BigDecimal discAmt,
-                         BigDecimal subTotal,
-                         BigDecimal other,
-                         BigDecimal finalTotal,
                          String status,
-                         Boolean isPaid) {
+                         Boolean isPaid,
+                         Integer discPct,
+                         BigDecimal other) {
 }

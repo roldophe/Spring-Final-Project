@@ -30,8 +30,8 @@ public class Order {
     @JoinColumn(name = "cus_id")
     private Customer customer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "crew_id")
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "crew_id",nullable = false)
     private Crew crew;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)

@@ -1,12 +1,19 @@
 package dev.radom.restaurant.init;
 
 import dev.radom.restaurant.api.menu.ItemRepository;
+import dev.radom.restaurant.api.menu.Menu;
 import dev.radom.restaurant.api.menu.MenuRepository;
+import dev.radom.restaurant.api.order.model.Crew;
+import dev.radom.restaurant.api.order.model.Customer;
 import dev.radom.restaurant.api.order.repository.CrewRepository;
 import dev.radom.restaurant.api.order.repository.CustomerRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor

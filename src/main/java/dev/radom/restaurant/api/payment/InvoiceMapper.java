@@ -1,7 +1,9 @@
 package dev.radom.restaurant.api.payment;
 
 import dev.radom.restaurant.api.payment.dto.AddInvoiceDto;
+import dev.radom.restaurant.api.payment.dto.InvoiceDetailDto;
 import dev.radom.restaurant.api.payment.dto.InvoiceDto;
+import dev.radom.restaurant.api.payment.dto.UpdateInvoiceDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -14,17 +16,16 @@ public interface InvoiceMapper {
     @Mapping(source = "invoiceRequest.status",target = "status")
     @Mapping(source = "invoiceRequest.discPct",target = "discPct")
     Invoice fromAddInvoiceDto(AddInvoiceDto addInvoiceDto);
-    @Mapping(source = "order.uuid",target = "orderUuid")
+
+    @Mapping(source = "updateInvoiceDto.discPct",target = "discPct")
+    @Mapping(source = "updateInvoiceDto.other",target = "other")
+    @Mapping(source = "updateInvoiceDto.status",target = "status")
+    Invoice fromUpdateInvoiceDto(Invoice invoice, UpdateInvoiceDto updateInvoiceDto);
+    @Mapping(source = "invoice.order.uuid",target = "orderUuid")
     InvoiceDto toInvoiceDto(Invoice invoice);
-    List<InvoiceDto> toInvoiceDtoList(List<InvoiceDetail> invoiceDetails);
-    @Mapping(source = "invoiceDetail.invoice.uuid",target = "uuid")
-    @Mapping(source = "invoiceDetail.invoice.paymentDate",target = "paymentDate")
-    @Mapping(source = "invoiceDetail.invoice.paymentMethod",target = "paymentMethod")
-    @Mapping(source = "invoiceDetail.invoice.discPct",target = "discPct")
-    @Mapping(source = "invoiceDetail.invoice.other",target = "other")
-    @Mapping(source = "invoiceDetail.invoice.finalTotal",target = "finalTotal")
-    @Mapping(source = "invoiceDetail.invoice.status",target = "status")
-    @Mapping(source = "invoiceDetail.invoice.isPaid",target = "isPaid")
-    @Mapping(source = "invoiceDetail.invoice.order.uuid",target = "orderUuid")
-    InvoiceDto toInvoiceDto(InvoiceDetail invoiceDetail);
+    List<InvoiceDto> toInvoiceDtoList(List<Invoice> invoiceDtoList);
+
+    @Mapping(source = "invoiceDetail.invoice",target = "invoice")
+    InvoiceDetailDto toInvoiceDetailDto(InvoiceDetail invoiceDetail);
+    List<InvoiceDetailDto> toInvoiceDetailDtoList(List<InvoiceDetail> invoices);
 }

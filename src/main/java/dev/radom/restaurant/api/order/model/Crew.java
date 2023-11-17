@@ -40,7 +40,7 @@ public class Crew {
     private LocalDate dob;
     private Integer age;
 
-    @Column(name = "contact_number", length = 20)
+    @Column(name = "contact_number", length = 20, nullable = false)
     private String contact;
 
     @Column(nullable = false)
@@ -49,7 +49,7 @@ public class Crew {
     @Column(unique = true, length = 80, nullable = false)
     private String email;
 
-    @Column(name = "is_working")
+    @Column(name = "is_working", nullable = false)
     private Boolean isWorking;
 
     @OneToMany(mappedBy = "crew")
