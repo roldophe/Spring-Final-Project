@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface InvoiceRepository extends JpaRepository<Invoice,Long> {
     Optional<Invoice> findInvoiceByUuid(String uuid);
     List<Invoice> findInvoiceByIsPaidFalse();
+    Boolean existsInvoiceByOrder_Id(Long id);
 }
