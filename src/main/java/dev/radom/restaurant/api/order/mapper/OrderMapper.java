@@ -1,7 +1,6 @@
 package dev.radom.restaurant.api.order.mapper;
 
 import dev.radom.restaurant.api.order.dto.*;
-import dev.radom.restaurant.api.order.dto.*;
 import dev.radom.restaurant.api.order.model.Order;
 import dev.radom.restaurant.api.order.model.OrderDetail;
 import org.mapstruct.Mapper;
@@ -14,9 +13,6 @@ public interface OrderMapper {
     @Mapping(source = "addOrderItemDto.crewId", target = "crew.id")
     @Mapping(source = "addOrderItemDto.customerId", target = "customer.id")
     Order mapAddOrderItemDtoToOrder(AddOrderItemDto addOrderItemDto);
-
-    List<OrderDto> toOrderDtoList(List<Order> orders);
-
     @Mapping(source = "customer.uuid", target = "customerUuid")
     @Mapping(source = "crew.uuid", target = "crewUuid")
     OrderDto toOrderDto(Order order);
@@ -25,7 +21,6 @@ public interface OrderMapper {
     @Mapping(source = "orderDetail.item.id", target = "itemId")
     OrderDetailDto toOrderDetailDto(OrderDetail orderDetail);
 
-    List<OrderDetailDto> toOrderDetailDtoList(List<OrderDetail> orderDetail);
 
     @Mapping(source = "addOrderDetailDto.itemId", target = "item.id")
     OrderDetail mapAddOrderDetailDtoToOrderDetail(AddOrderDetailDto addOrderDetailDto);

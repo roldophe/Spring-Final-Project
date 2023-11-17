@@ -1,6 +1,5 @@
 package dev.radom.restaurant.api.order.service.impl;
 
-import dev.radom.restaurant.api.order.dto.*;
 import dev.radom.restaurant.api.order.mapper.OrderMapper;
 import dev.radom.restaurant.api.order.model.Order;
 import dev.radom.restaurant.api.order.model.OrderDetail;
@@ -103,6 +102,5 @@ public class OrderServiceImpl implements OrderService {
         // Delete the order
         orderRepository.delete(order);
     }
-
 
 }
